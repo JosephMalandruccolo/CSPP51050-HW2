@@ -16,7 +16,7 @@ public class QueryMsg extends Message {
 	//=====================================================================
 	//	=>	PROPERTIES
 	//=====================================================================
-	int queryId;
+	private int queryId;
 	
 	
 	
@@ -28,6 +28,11 @@ public class QueryMsg extends Message {
 		this.queryId = QueryMsg.nextQueryId++;
 	}
 	
+	
+	//=====================================================================
+	//	=>	PUBLIC API
+	//=====================================================================
+	public int getQueryId() { return this.queryId; }
 	
 
 }

@@ -1,5 +1,10 @@
 package assignment;
 
+/**
+ * A class that provides a response Object, as requested by a query message
+ * @author Joseph Malandruccolo
+ *
+ */
 public class ReplyMsg extends Message {
 	
 	//=====================================================================
