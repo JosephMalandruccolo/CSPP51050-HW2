@@ -58,13 +58,15 @@ public class Responder {
 	public void readQueue(MessageQueue q) {
 		Message msg = q.popMessageIfForRecipient(this.id);
 		
-		if (msg instanceof QueryMsg) {
-			int request = (Integer) msg.getContents();
-			ReplyMsg reply = new ReplyMsg(this.id, msg.getSenderId(), Responder.presidentialData.get(request), ((QueryMsg) msg).getQueryId());
-			q.pushMessage(reply);
-		}
-		else {
-			q.pushMessage(new ReplyMsg(this.id, msg.getSenderId(), new String("Invalid message type"), -1));
+		if (msg != null) {
+			if (msg instanceof QueryMsg) {
+				int request = (Integer) msg.getContents();
+				ReplyMsg reply = new ReplyMsg(this.id, msg.getSenderId(), Responder.presidentialData.get(request), ((QueryMsg) msg).getQueryId());
+				q.pushMessage(reply);
+			}
+			else {
+				q.pushMessage(new ReplyMsg(this.id, msg.getSenderId(), new String("Invalid message type"), -1));
+			}
 		}
 	}
 	

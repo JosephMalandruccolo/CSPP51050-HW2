@@ -38,7 +38,9 @@ public class MessageQueue {
 	 * Grab the next available message from the queue
 	 * @return - remove and return the next available message on the Queue
 	 */
-	public Message popMessage() { return this.messages.removeLast(); }
+	public Message popMessage() { 
+		return this.messages.removeLast(); 
+	}
 	
 	
 	/**
